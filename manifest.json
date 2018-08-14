@@ -1,0 +1,70 @@
+{
+ "manifest_version": 2,
+
+ "name": "repostert.nl (ree-post-hert)",
+ "description": "Welkom op repostert.nl: Iets met bezuinigingen en incompetente jorismanagers.",
+ "version": "0.0.1",
+
+ "icons":
+  {
+   "16": "icon/16.png",
+   "24": "icon/24.png",
+   "48": "icon/48.png",
+   "64": "icon/64.png",
+   "96": "icon/96.png",
+   "128": "icon/128.png",
+   "256": "icon/256.png"
+  },
+
+ "browser_action":
+  {
+   "default_icon": "icon/64.png"
+  },
+
+ "permissions":
+  [
+   "https://dumpert.nl/",
+   "https://www.dumpert.nl/",
+   "https://media.dumpert.nl/"
+  ],
+
+ "content_scripts":
+  [
+    {
+     "matches":
+      [
+       "https://dumpert.nl/*",
+       "https://www.dumpert.nl/*",
+       "https://media.dumpert.nl/*"
+      ],
+
+     "css":
+      [
+       "repostert.nl.css"
+      ],
+
+     "js":
+      [
+       "repostert.nl.js"
+      ]
+    },
+    {
+     "matches":
+      [
+       "https://comments.dumpert.nl/*"
+      ],
+
+     "all_frames": true,
+
+     "css":
+      [
+       "repostert.nl.comment.css"
+      ],
+
+     "js":
+      [
+       "repostert.nl.comment.js"
+      ]
+    }
+  ]
+}

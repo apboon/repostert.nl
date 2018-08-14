@@ -1,0 +1,35 @@
+a.commentkudo.plus,
+a.commentkudo.min
+ {
+  line-height: 1;
+  margin: auto;
+
+  border: 1px solid #eee;
+  border-radius: 3px;
+
+  z-index: 6;
+  width: 1em;
+  height: 1em;
+
+  background: none !important;
+  background-color: silver;
+
+  text-decoration: none !important;
+
+  text-align: center;
+  vertical-align: middle;
+
+  color: inherit;
+ }
+
+.subcomments a.commentkudo.plus,
+.subcomments a.commentkudo.min
+ {
+  border-color: #ddd;
+ }
+
+article.comment.topcomment footer:after
+ {
+  right: -5px !important;
+  transform: rotate(-9deg) !important;
+ }
