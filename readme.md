@@ -43,4 +43,4 @@ This browser extension adds functionality to the Dutch [Dumpert.nl](https://dump
 
 * "Dit en maak die + en - knoppen eens wat groter." - Toompie88 | 03-09-18 | 17:59
 
-  Re: Apparantly I wasn't the only one.
+  Re: Apparently I wasn't the only one.
