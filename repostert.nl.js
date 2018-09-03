@@ -8,7 +8,7 @@ const md5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerC
   btnRepostert_Open_All.classList.add('repostert');
   btnRepostert_Open_All.classList.add('open-all');
 
-  btnRepostert_Open_All.innerText = 'Open alles';
+  btnRepostert_Open_All.innerText = 'Ik wil alles';
   btnRepostert_Open_All.addEventListener('click', function ()
    {
     secRepostert_Overview.removeChild(btnRepostert_Open_All);
@@ -17,7 +17,7 @@ const md5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerC
 
     aryaRepostert_Article.forEach(aRepostert_Article =>
      {
-      console.log(aRepostert_Article.href);
+      // console.log(aRepostert_Article.href);
       self.open(aRepostert_Article.href, '_blank');
      });
    });
@@ -34,6 +34,7 @@ const md5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerC
       try
        {
         let imgRepostert_Article_Thumb = aRepostert_Article.querySelector('img');
+        let dtRepostert_Article_Date = new Date(aRepostert_Article.querySelector('date').innerText + '+0000');
         // console.log(imgRepostert_Article_Thumb.src);
 
         let strRepostert_Article_ID = imgRepostert_Article_Thumb.src.replace(/(?:.*?)(\d+)(_\w+\.(?:jpe?g|png).*?)/i, '$1');
@@ -81,20 +82,30 @@ const md5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerC
         // console.log(imdRepostert_Article_Thumb);
 
         let strRepostert_Article_Thumb_Fingerprint = 'article:' + md5(imdRepostert_Article_Thumb.data.map(intRepostert_Article_Thumb_Data => intRepostert_Article_Thumb_Data.toString(16)).join(':'));
-
-        let strRepostert_Article_ID_Match = localStorage.getItem(strRepostert_Article_Thumb_Fingerprint);
-
-        if (strRepostert_Article_ID_Match === null)
+        let objRepostert_Article =
          {
-          localStorage.setItem(strRepostert_Article_Thumb_Fingerprint, strRepostert_Article_ID);
+          id: strRepostert_Article_ID,
+          date: Number(dtRepostert_Article_Date),
+         };
+
+        let strRepostert_Article_Database = localStorage.getItem(strRepostert_Article_Thumb_Fingerprint);
+
+        if (strRepostert_Article_Database === null)
+         {
+          localStorage.setItem(strRepostert_Article_Thumb_Fingerprint, JSON.stringify(objRepostert_Article));
          }
-        else if (strRepostert_Article_ID !== strRepostert_Article_ID_Match)
+        else
          {
-          console.error('Repost!', strRepostert_Article_ID_Match, 'matches', strRepostert_Article_ID);
+          let objRepostert_Article_Database = (strRepostert_Article_Database ? JSON.parse(strRepostert_Article_Database) : objRepostert_Article);
 
-          // secRepostert_Overview.removeChild(aRepostert_Article);
+          if (objRepostert_Article.date > objRepostert_Article_Database.date)
+           {
+            console.error('Repost!', objRepostert_Article.id, 'matches', objRepostert_Article_Database.id);
 
-          aRepostert_Article.classList.add('repostert');
+            // secRepostert_Overview.removeChild(aRepostert_Article);
+
+            aRepostert_Article.classList.add('repostert');
+           }
          }
 
        }
