@@ -13,6 +13,11 @@
 
     let strUser_Name = spanUser_Name.innerText.trim();
 
+    if (strUser_Name === '')
+     {
+      return;
+     }
+
 
     while (spanUser_Name.childNodes.length)
      {

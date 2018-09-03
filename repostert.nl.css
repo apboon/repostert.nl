@@ -42,3 +42,28 @@ section.dump-cnt a.repostert::after
 
   content: ' ';
  }
+
+
+.jw-button-container .jw-icon-volume
+ {
+  margin-left: 10px;
+
+  height: 20px;
+ }
+.jw-button-container .jw-icon-volume::after
+ {
+  box-shadow: none;
+ }
+
+.jw-button-container .jw-icon-volume .jw-overlay
+ {
+  bottom: 60%;
+
+  transform: rotate(90deg);
+  transform-origin: center bottom;
+ }
+
+.jw-button-container .jw-icon-volume .jw-volume-tip
+ {
+  padding-bottom: 0px;
+ }

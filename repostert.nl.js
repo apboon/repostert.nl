@@ -106,8 +106,20 @@ const md5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerC
    });
 
 
-  // aryaRepostert_Article.forEach(aRepostert_Article =>
-  //  {
-  //   console.log(aRepostert_Article);
-  //  });
+  setTimeout(function ()
+   {
+    let divJW_Button_Container = document.querySelector('.jw-button-container');
+    let divJW_Icon_Volume = document.querySelector('.jw-button-container .jw-icon-volume');
+    let arydivJW_Text = Array.from(document.querySelectorAll('.jw-button-container .jw-text-elapsed, .jw-button-container .jw-text-duration'));
+
+    if (divJW_Button_Container && divJW_Icon_Volume && arydivJW_Text)
+     {
+      arydivJW_Text.forEach(divJW_Text =>
+       {
+        console.log(divJW_Text, divJW_Icon_Volume);
+        divJW_Button_Container.insertBefore(divJW_Text, divJW_Icon_Volume);
+       });
+     }
+   }, 2500);
+
  })();
