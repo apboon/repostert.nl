@@ -2,12 +2,11 @@
 
 Een browserextensie voor Chrome en Firefox die het gebruik van [Dumpert.nl](https://dumpert.nl/) makkelijker maakt.
 
-![](icon/256.png)
-
-
 * Chrome: [repostert.nl (ree-post-hert) voor Chrome](https://chrome.google.com/webstore/detail/repostertnl-ree-post-hert/mcfmabajgmemcbniechokeelbchfmffm)
 
 * Firefox: [repostert.nl (ree-post-hert) voor Firefox](https://addons.mozilla.org/en-US/firefox/addon/repostert/)
+
+![](icon/256.png)
 
 
 ## Wat doet het?
